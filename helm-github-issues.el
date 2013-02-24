@@ -44,7 +44,7 @@
   (with-temp-buffer
     (when (zerop (call-process-shell-command "git remote -v" nil t))
       (goto-char (point-min))
-      (when (re-search-forward "github.com/\\(.+?\\).git")
+      (when (re-search-forward "github\\.com[/:]?\\([^/]+/.+?\\)\\.git" nil t)
         (match-string-no-properties 1)))))
 
 (defun helm-c-github-issues-filter-issues (issues state)
